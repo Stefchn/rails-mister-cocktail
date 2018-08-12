@@ -23,7 +23,3 @@ ingredients_hash["drinks"].each do |ing|
 end
 
 puts "Finished"
-
-Cocktail.create(name: 'White Russian')
-Cocktail.create(name: 'Blue Lagoon')
-Cocktail.create(name: 'Mai Tai')

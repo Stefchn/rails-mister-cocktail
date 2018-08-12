@@ -1,4 +1,6 @@
- <div class="container">
+<div class="container">
+
+
   <div class="row">
     <div class="col-xs-12">
       <h1><%= @cocktail.name %></h1>
@@ -15,15 +17,23 @@
             <th>Description</th>
           </thead>
           <% @cocktail.doses.each do |dose| %>
-            <tr>
-              <td><%= dose.ingredient.name %></td>
-              <td><%= dose.description %></td>
-            </tr>
+          <tr>
+            <td><%= dose.ingredient.name %></td>
+            <td><%= dose.description %></td>
+          </tr>
           <% end %>
         </tbody>
       </table>
+ <%= cl_image_tag @cocktail.photo, height: 300, width:400, crop: :fill %>
+<ul>
+
+  <li><%= link_to "Add a recipe", new_cocktail_dose_path(@cocktail) %></li>
+  <li> <%= link_to cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" } do %> <i class="fa fa-trash destroy_dose"></i>
+      <% end %></li>
+</ul>
+
+
     </div>
-    <%= link_to "Add a recipe", new_cocktail_dose_path(@cocktail) %>
-    <%= link_to "Delete", method: :delete, data: { confirm: "Are you sure?" } do %> <i class="fa fa-trash destroy_dose"></i>
-    <% end %>
   </div>
+</div>
+
